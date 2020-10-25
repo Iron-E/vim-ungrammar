@@ -3,6 +3,7 @@ highlight link ungramConditional Conditional
 highlight link ungramDelimiter Delimiter
 highlight link ungramLabel Label
 highlight link ungramOperator Operator
+highlight link ungramQuote Delimiter
 highlight link ungramRepeat Repeat
 highlight link ungramRule Identifier
 highlight link ungramString String
