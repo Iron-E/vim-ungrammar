@@ -18,15 +18,15 @@ endfunction
 
 " ==============================================================================
 
-syntax match ungramRule /\('\)\@<![A-Za-z0-9]*\('\)\@!/ contains=ALLBUT,ungramConditional,ungramDelimiter,ungramLabel,ungramOperator,ungramRepeat,ungramString,ungramToken display
+syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramConditional,ungramDelimiter,ungramLabel,ungramOperator,ungramRepeat,ungramString,ungramToken display
 
 syntax match ungramConditional '?' display
 syntax match ungramDelimiter /[(|)]/ display
-syntax match ungramLabel /\('\)\@<![A-Za-z]\+:\('.*'\)\@=/ contains=ungramString display
+syntax match ungramLabel /\('\)\@<![_A-Za-z0-9]\+:\('.*'\)\@=/ contains=ungramString display
 syntax match ungramOperator '=' display
 syntax match ungramRepeat '*' display
 syntax region ungramString start=/'/ skip=/\\'/ end=/'/ contains=ungramToken display matchgroup=ungramString oneline
-syntax match ungramToken /[A-Za-z0-9]\+\(_[A-Za-z0-9]\+\)\+/ contained display
+syntax match ungramToken /[A-Za-z0-9]\+[_A-Za-z0-9]\+/ contained display
 
 " ==============================================================================
 
