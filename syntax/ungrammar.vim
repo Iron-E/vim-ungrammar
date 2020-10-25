@@ -1,9 +1,9 @@
 " Filetype: ungrammar (*.ungram)
 " URL: https://github.com/Iron-E/vim-ungrammar
 
-"if exists("b:current_syntax")
-"	finish
-"endif
+if exists("b:current_syntax")
+	finish
+endif
 
 syntax sync fromstart
 
