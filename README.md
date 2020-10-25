@@ -11,7 +11,7 @@
 This plugin defines the following syntax groups:
 
 | Group Name          | Description                      | Example            |
-|:-------------------:|:--------------------------------:|:------------------:|
+|:--------------------|:---------------------------------|:-------------------|
 | `ungramConditional` | A conditional (1-or-0).          | `?`                |
 | `ungramLabel`       | A label for a token or string.   | `scope:'local'`    |
 | `ungramOperator`    | An operator.                     | `=`                |
