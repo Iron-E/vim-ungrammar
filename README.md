@@ -11,23 +11,26 @@
 
 This plugin defines the following syntax groups:
 
-| Group Name               | Description                      | Example            |
-|:-------------------------|:---------------------------------|:-------------------|
-| `ungramAlternation`      | An alternation ("OR").           | `|`                |
-| `ungramConditionalGroup` | A group which is a conditional.  | `(Foo|Bar)?`       |
-| `ungramConditional`      | A conditional (1-or-0).          | `?`                |
-| `ungramLabel`            | A label for a token or string.   | `scope:'local'`    |
-| `ungramOperator`         | An operator.                     | `=`                |
-| `ungramQuote`            | A quote for a string or token.   | `'`                |
-| `ungramRepeatGroup`      | A group which is repeated.       | `(Foo|Bar)*`       |
-| `ungramRepeat`           | 0 or more repetitions.           | `*`                |
-| `ungramRule`             | A rule for a grammar.            | `Foo`              |
-| `ungramString`           | A specific string of characters. | `'for'`            |
-| `ungramToken`            | A token.                         | `'identifier_var'` |
+| Group Name                | Description                      | Example            |
+|:--------------------------|:---------------------------------|:-------------------|
+| `ungramAlternation`       | An alternation on a rule.        | `|`                |
+| `ungramConditionalGroup`  | A group which is a conditional.  | `(Foo|Bar)?`       |
+| `ungramConditionalString` | A conditional `ungramString`.    | `'for'?`           |
+| `ungramConditional`       | A conditional (1-or-0).          | `?`                |
+| `ungramLabel`             | A label for a token or string.   | `scope:'local'`    |
+| `ungramOperator`          | An operator.                     | `=`                |
+| `ungramOr`                | Alternative for a given position.| `Foo|Bar`          |
+| `ungramQuote`             | A quote for a string or token.   | `'`                |
+| `ungramRepeatGroup`       | A group which is repeated.       | `(Foo|Bar)*`       |
+| `ungramRepeatString`      | A repeated `ungramString`.       | `'for'*`           |
+| `ungramRepeat`            | 0 or more repetitions.           | `*`                |
+| `ungramRule`              | A rule for a grammar.            | `Foo`              |
+| `ungramString`            | A specific string of characters. | `'for'`            |
+| `ungramToken`             | A token.                         | `'identifier_var'` |
 
 # Markdown
 
-You can use this plugin seamlessly with [plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown) provided that the following is part of your `init.vim` configuration:
+You can use this plugin seamlessly with [plasticboy/vim-markdown][plasticboy_markdown] provided that the following is part of your `init.vim` configuration:
 
 ```vim
 let g:vim_markdown_fenced_languages = ['ungram=ungrammar']
@@ -40,5 +43,13 @@ Then, you can create codeblocks in markdown and it will use the syntax file from
 	 Foo = 'A' | 'B'
 ````
 
+# Credits
+
+* [rust-analyzer/ungrammar][ungrammar] created the syntax and initial implementation.
+* [tbastos/vim-lua](https://github.com/tbastos/vim-lua) open sourced a clear example of syntax files.
+* [Learn Vimscript The Hard Way](https://learnvimscriptthehardway.stevelosh.com/chapters/45.html) got me started.
+* [plasticboy][plasticboy_markdown] wrote a fantastic markdown plugin with syntax highlighting for fenced code blocks.
+
 [ungrammar]:https://rust-analyzer.github.io/blog/2020/10/24/introducing-ungrammar.html "Introducing Ungrammar"
+[plasticboy_markdown]:https://github.com/plasticboy/vim-markdown "plasticboy/vim-markdown"
 

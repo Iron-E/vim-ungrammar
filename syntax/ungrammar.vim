@@ -1,20 +1,13 @@
 " Filetype: ungrammar (*.ungram)
-" URL: https://github.com/Iron-E/vim-ungrammar
+" Repo: https://github.com/Iron-E/vim-ungrammar
+" Credit: https://github.com/tbastos/vim-lua,
+"         https://learnvimscriptthehardway.stevelosh.com/chapters/45.html
 
 if exists("b:current_syntax")
 	finish
 endif
 
 syntax sync fromstart
-
-function! s:FoldableRegion(tag, name, expr)
-	let synexpr = 'syntax region ' . a:name . ' ' . a:expr
-	let pfx = 'g:lua_syntax_fold_'
-	if !exists('g:lua_syntax_nofold') || exists(pfx . a:tag) || exists(pfx . a:name)
-		let synexpr .= ' fold'
-	end
-	exec synexpr
-endfunction
 
 " ==============================================================================
 
@@ -26,7 +19,9 @@ syntax region ungramString matchgroup=ungramQuote start=/'/ skip=/\\'/ end=/'\([
 syntax region ungramConditionalString matchgroup=ungramConditional start=/'/ skip=/\\'/ end=/'?/ contains=ungramToken display oneline
 syntax region ungramRepeatString matchgroup=ungramRepeat start=/'/ skip=/\\'/ end=/'\*/ contains=ungramToken display oneline
 
-syntax match ungramAlternation '|' display
+syntax match ungramAlternation /^|\|\s\+|\s\+/ contained display
+syntax match ungramOr '|' contains=ungramAlternation display
+
 syntax match ungramConditional '?' display
 syntax match ungramLabel /\('\)\@<![_A-Za-z0-9]\+:\('.*'\)\@=/ contains=ungramString display
 syntax match ungramOperator '=' display
