@@ -1,5 +1,5 @@
 " Filetype: ungrammar (*.ungram)
-" URL: https://github.com/Iron-E/nvim-ungrammar
+" URL: https://github.com/Iron-E/vim-ungrammar
 
 if exists("b:current_syntax")
 	finish
@@ -18,18 +18,20 @@ endfunction
 
 " ==============================================================================
 
-syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramLabel,ungramToken display
+syntax region ungramGroup matchgroup=ungramDelimiter start='(' end=/)\([?*]\)\@!/ display oneline
+syntax region ungramConditionalGroup matchgroup=ungramConditional start='(' end=')?' contains=ungramConditional display oneline
+syntax region ungramRepeatGroup matchgroup=ungramRepeat start='(' end=')\*' contains=ungramRepeat display oneline
 
 syntax match ungramAlternation '|' display
 syntax match ungramConditional '?' display
-syntax region ungramConditionalGroup start='(' end=')?' contains=ungramGroup display matchgroup=ungramConditional oneline
-syntax region ungramGroup start='(' end=/)\([?!]\)\@!/ display matchgroup=ungramDelimiter oneline
 syntax match ungramLabel /\('\)\@<![_A-Za-z0-9]\+:\('.*'\)\@=/ contains=ungramString display
 syntax match ungramOperator '=' display
+syntax match ungramQuote /\(\\\)\@<!'/
 syntax match ungramRepeat '*' display
-syntax region ungramRepeatGroup start='(' end=')*' contains=ungramGroup display matchgroup=ungramRepeat oneline
-syntax region ungramString start=/'/ skip=/\\'/ end=/'/ contains=ungramToken display matchgroup=ungramString oneline
-syntax match ungramToken /[A-Za-z0-9]\+[_A-Za-z0-9]\+/ contained display
+syntax match ungramString /'[A-Za-z0-9]\+'/ contains=ungramQuote display
+syntax match ungramToken /'[A-Za-z0-9]\+\(_[A-Za-z0-9]\+\)\+'/ contains=ungramQuote display
+
+syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramToken,ungramString display
 
 " ==============================================================================
 
