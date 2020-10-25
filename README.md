@@ -1,4 +1,4 @@
-# kvim-ungrammar
+# vim-ungrammar
 
 `Vim-ungrammar` is a plugin for Neovim and Vim for the [Ungrammar][ungrammar] filetype which provides:
 
