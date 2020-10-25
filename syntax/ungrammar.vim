@@ -18,9 +18,9 @@ endfunction
 
 " ==============================================================================
 
-syntax region ungramGroup matchgroup=ungramDelimiter start='(' end=/)\([?*]\)\@!/ display oneline
-syntax region ungramConditionalGroup matchgroup=ungramConditional start='(' end=')?' contains=ungramConditional display oneline
-syntax region ungramRepeatGroup matchgroup=ungramRepeat start='(' end=')\*' contains=ungramRepeat display oneline
+syntax region ungramGroup matchgroup=ungramDelimiter start='(' end=/)\([?*]\)\@!/ contains=ALL display oneline
+syntax region ungramConditionalGroup matchgroup=ungramConditional start='(' end=')?' contains=ALL display oneline
+syntax region ungramRepeatGroup matchgroup=ungramRepeat start='(' end=')\*' contains=ALL display oneline
 
 syntax match ungramAlternation '|' display
 syntax match ungramConditional '?' display
