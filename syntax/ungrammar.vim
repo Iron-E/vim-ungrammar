@@ -26,7 +26,7 @@ syntax match ungramLabel /\('\)\@<![A-Za-z]\+:\('.*'\)\@=/ contains=ungramString
 syntax match ungramOperator '=' display
 syntax match ungramRepeat '*' display
 syntax region ungramString start=/'/ skip=/\\'/ end=/'/ contains=ungramToken display matchgroup=ungramString oneline
-syntax match ungramToken /\(_[A-Za-z0-9]\+\)\+/ contained display
+syntax match ungramToken /[A-Za-z0-9]\(_[A-Za-z0-9]\+\)\+/ contained display
 
 " ==============================================================================
 
