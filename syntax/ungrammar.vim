@@ -11,15 +11,17 @@ syntax sync fromstart
 
 " ==============================================================================
 
-syntax region ungramGroup matchgroup=ungramDelimiter start='(' end=/)\([?*]\)\@!/ contains=ALLBUT,ungramQuote display oneline
-syntax region ungramConditionalGroup matchgroup=ungramConditional start='(' end=')?' contains=ALLBUT,ungramQuote display oneline
-syntax region ungramRepeatGroup matchgroup=ungramRepeat start='(' end=')\*' contains=ALLBUT,ungramQuote display oneline
+syntax region ungramGrammar start=/^\(\S\|[^|]\)/ end=/^\n/ fold keepend transparent
 
-syntax region ungramString matchgroup=ungramQuote start=/'/ skip=/\\'/ end=/'\([?*]\)\@!/ contains=ungramToken display oneline
-syntax region ungramConditionalString matchgroup=ungramConditional start=/'/ skip=/\\'/ end=/'?/ contains=ungramToken display oneline
-syntax region ungramRepeatString matchgroup=ungramRepeat start=/'/ skip=/\\'/ end=/'\*/ contains=ungramToken display oneline
+syntax region ungramGroup matchgroup=ungramDelimiter start='(' end=/)\([?*]\)\@!/ contains=ALLBUT,ungramGrammar,ungramQuote display oneline
+syntax region ungramConditionalGroup matchgroup=ungramConditional start='(' end=')\s*?' contains=ALLBUT,ungramGrammar,ungramQuote display oneline
+syntax region ungramRepeatGroup matchgroup=ungramRepeat start='(' end=')\s*\*' contains=ALLBUT,ungramGrammar,ungramQuote display oneline
 
-syntax match ungramAlternation /^|\|\s\+|\s\+/ contained display
+syntax region ungramString matchgroup=ungramQuote start=/'/ skip=/\\'/ end=/'\([?*]\)\@!/ concealends contains=ungramToken display oneline
+syntax region ungramConditionalString matchgroup=ungramConditional start=/'/ skip=/\\'/ end=/'\s*?/ contains=ungramToken display oneline
+syntax region ungramRepeatString matchgroup=ungramRepeat start=/'/ skip=/\\'/ end=/'\s*\*/ contains=ungramToken display oneline
+
+syntax match ungramAlternation /^|\|\s\+|\s\+/ containedin=ungramOr display
 syntax match ungramOr '|' contains=ungramAlternation display
 
 syntax match ungramConditional '?' display
@@ -29,7 +31,7 @@ syntax match ungramQuote /\(\\\)\@<!'/ contained
 syntax match ungramRepeat '*' display
 syntax match ungramToken /[A-Za-z0-9]\+\(_[A-Za-z0-9]\+\)\+/ contained display
 
-syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramQuote,ungramToken display
+syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramGrammar,ungramQuote,ungramToken display
 
 " ==============================================================================
 
