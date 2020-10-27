@@ -7,28 +7,36 @@
 	* Use `let g:ungrammar_formatting = v:false` to turn it off.
 * [Syntax](./syntax/ungrammar.vim) files.
 
-# Highlight Groups
+## Preview
+
+Here is a preview of the syntax highlighting, using [nvim-highlite](https://github.com/Iron-E/nvim-highlite) as a theme:
+
+![preview](./media/preview.png "Preview of Highlight Groups using Iron-E/nvim-highlite")
+
+# Configuration
+
+## Highlighting Groups
 
 This plugin defines the following syntax groups:
 
 | Group Name                | Description                      | Example            |
 |:--------------------------|:---------------------------------|:-------------------|
-| `ungramAlternation`       | An alternation on a rule.        | `|`                |
-| `ungramConditionalGroup`  | A group which is a conditional.  | `(Foo|Bar)?`       |
+| `ungramAlternation`       | An alternation on a rule.        | `\|`               |
+| `ungramConditionalGroup`  | A group which is a conditional.  | `(Foo\|Bar)?`      |
 | `ungramConditionalString` | A conditional `ungramString`.    | `'for'?`           |
 | `ungramConditional`       | A conditional (1-or-0).          | `?`                |
 | `ungramLabel`             | A label for a token or string.   | `scope:'local'`    |
 | `ungramOperator`          | An operator.                     | `=`                |
-| `ungramOr`                | Alternative for a given position.| `Foo|Bar`          |
+| `ungramOr`                | Alternative for a given position.| `Foo\|Bar`         |
 | `ungramQuote`             | A quote for a string or token.   | `'`                |
-| `ungramRepeatGroup`       | A group which is repeated.       | `(Foo|Bar)*`       |
+| `ungramRepeatGroup`       | A group which is repeated.       | `(Foo\|Bar)*`      |
 | `ungramRepeatString`      | A repeated `ungramString`.       | `'for'*`           |
 | `ungramRepeat`            | 0 or more repetitions.           | `*`                |
 | `ungramRule`              | A rule for a grammar.            | `Foo`              |
 | `ungramString`            | A specific string of characters. | `'for'`            |
 | `ungramToken`             | A token.                         | `'identifier_var'` |
 
-# Markdown
+## Markdown Integration
 
 You can use this plugin seamlessly with [plasticboy/vim-markdown][plasticboy_markdown] provided that the following is part of your `init.vim` configuration:
 
