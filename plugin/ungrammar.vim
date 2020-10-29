@@ -1,4 +1,5 @@
 highlight! link ungramAlternation Special
+highlight! link ungramComment Comment
 highlight! link ungramConditional Conditional
 highlight! link ungramConditionalString ungramString
 highlight! link ungramDelimiter Delimiter
