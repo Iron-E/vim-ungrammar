@@ -1,14 +1,11 @@
-highlight! link ungramAlternation Special
-highlight! link ungramComment Comment
-highlight! link ungramConditional Conditional
-highlight! link ungramConditionalString ungramString
-highlight! link ungramDelimiter Delimiter
-highlight! link ungramLabel Label
-highlight! link ungramOperator Operator
-highlight! link ungramOr ungramDelimiter
-highlight! link ungramQuote String
-highlight! link ungramRepeat Repeat
-highlight! link ungramRepeatString ungramString
-highlight! link ungramRule Identifier
-highlight! link ungramString Constant
-highlight! link ungramToken Type
+hi def link ungramAlternation Statement
+hi def link ungramComment Comment
+hi def link ungramDelimiter Delimiter
+hi def link ungramLabel Label
+hi def link ungramOperator Operator
+hi def link ungramOr Conditional
+hi def link ungramQuote ungramDelimiter
+hi def link ungramRepeat Repeat
+hi def link ungramRule Identifier
+hi def link ungramString String
+hi def link ungramToken Type
