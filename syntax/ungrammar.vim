@@ -21,11 +21,11 @@ syntax region ungramComment start=#/\*# end=#\*/# concealends display
 
 syntax match ungramAlternation /^|/ containedin=ungramOr display
 syntax match ungramComment #//.*$# display
-syntax match ungramConditional '?' display
 syntax match ungramLabel /\('\)\@<![_A-Za-z0-9]\+:\('.*'\)\@=/ contains=ungramString display
 syntax match ungramOperator '=' display
 syntax match ungramOr '|' contains=ungramAlternation display
 syntax match ungramRepeat '\*' display
+syntax match ungramRepeat '?' display
 syntax match ungramToken /\w\+\(_\w\+\)\+/ contained display
 
 syntax match ungramRule /\('\)\@<![_A-Za-z0-9]\+\('\)\@!/ contains=ALLBUT,ungramGrammar,ungramString,ungramToken display
