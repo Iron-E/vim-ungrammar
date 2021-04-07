@@ -1,5 +1,6 @@
 hi def link ungramAlternation Statement
 hi def link ungramComment Comment
+hi def link ungramDocComment SpecialComment
 hi def link ungramDelimiter Delimiter
 hi def link ungramLabel Label
 hi def link ungramLabelDelimiter ungramDelimiter

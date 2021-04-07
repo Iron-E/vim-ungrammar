@@ -21,6 +21,7 @@ syntax region ungramComment start=#/\*# end=#\*/# concealends display
 
 syntax match ungramAlternation /^|/ containedin=ungramOr display
 syntax match ungramComment #//.*$# display
+syntax match ungramDocComment #///.*$# display
 syntax match ungramLabel /\v(')@<!\w+:('.*'|(')@<!\w+(')@!)@=/ display contains=ungramLabelDelimiter
 syntax match ungramLabelDelimiter /\v:('.*'|(')@<!\w+(')@!)@=/ contained display nextgroup=ungramString,ungramRule
 syntax match ungramOperator '=' display
