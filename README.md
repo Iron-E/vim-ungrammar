@@ -13,9 +13,9 @@ Here is a preview of the syntax highlighting, using [nvim-highlite](https://gith
 
 ![preview](./media/preview.png "Preview of Highlight Groups using Iron-E/nvim-highlite")
 
-# Configuration
+## Configuration
 
-## Highlighting Groups
+### Highlighting Groups
 
 This plugin defines the following syntax groups:
 
@@ -36,7 +36,7 @@ This plugin defines the following syntax groups:
 | `ungramString`            | A specific string of characters. | `'for'`            |
 | `ungramToken`             | A token.                         | `'identifier_var'` |
 
-## Markdown Integration
+### Markdown Integration
 
 You can use this plugin seamlessly with [plasticboy/vim-markdown][plasticboy_markdown] provided that the following is part of your `init.vim` configuration:
 
@@ -51,13 +51,12 @@ Then, you can create codeblocks in markdown and it will use the syntax file from
 	 Foo = 'A' | 'B'
 ````
 
-# Credits
+## Credits
 
-* [rust-analyzer/ungrammar][ungrammar] created the syntax and initial implementation.
-* [tbastos/vim-lua](https://github.com/tbastos/vim-lua) open sourced a clear example of syntax files.
 * [Learn Vimscript The Hard Way](https://learnvimscriptthehardway.stevelosh.com/chapters/45.html) got me started.
 * [plasticboy][plasticboy_markdown] wrote a fantastic markdown plugin with syntax highlighting for fenced code blocks.
+* [rust-analyzer/ungrammar][ungrammar] created the syntax and initial implementation.
+* [tbastos/vim-lua](https://github.com/tbastos/vim-lua) open sourced a clear example of syntax files.
 
 [ungrammar]:https://rust-analyzer.github.io/blog/2020/10/24/introducing-ungrammar.html "Introducing Ungrammar"
 [plasticboy_markdown]:https://github.com/plasticboy/vim-markdown "plasticboy/vim-markdown"
-
