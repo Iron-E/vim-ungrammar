@@ -23,8 +23,8 @@ syntax region ungramComment start=#/\*# end=#\*/# concealends display
 syntax match ungramAlternation #^\s*|# containedin=ungramOr display
 syntax match ungramComment #//.*$# display
 syntax match ungramDocComment #///.*$# display
-syntax match ungramLabel #\v_*\l[_a-z]*:@=# contained display nextgroup=ungramLabelDelimiter
-syntax match ungramLabelDelimiter #:# contained display nextgroup=ungramString,ungramRule
+syntax match ungramLabel #_*\l[_a-z]*:# contained display contains=ungramLabelDelimiter
+syntax match ungramLabelDelimiter #:# contained display nextgroup=ungramLabel,ungramString,ungramRule
 syntax match ungramOperator '=' display
 syntax match ungramOr '|' contains=ungramAlternation display
 syntax match ungramRepeat '\*' display
